@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College student</title>
+</head>
+<body>
+    {% if 'onlineapp.add_student' in user_permissions %}
+    <input type="button" onclick="location.href='http://127.0.0.1:8000/onlineapp/college/{{num}}/add'" value="Add student ">
+    {% endif %}
+    <table border="1" align="center">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>colloge</th>
+            <th>total</th>
+            {% if 'onlineapp.change_college' in user_permissions  and 'onlineapp.delete_college' in user_permissions %}
+            <th>options</th>
+            {% endif %}
+        </tr>
+        {% for i in stu_det %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.college__acronym}}</td>
+                <td>{{i.mocktest1__total}}</td>                                                                <!--collegeid,studentid-->
+                {% if 'onlineapp.change_college' in user_permissions  and 'onlineapp.delete_college' in user_permissions %}
+                <td><a href="http://127.0.0.1:8000/onlineapp/college/{{num}}/{{i.id}}/edit">edit</a>/<a href="http://127.0.0.1:8000/onlineapp/college/{{num}}/{{i.id}}/delete">delete</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

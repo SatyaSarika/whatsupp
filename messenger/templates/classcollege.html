@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college table</title>
+     <style>
+        #students {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#students td, #students th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#students tr:nth-child(even){background-color: #f2f2f2;}
+
+#students tr:hover {background-color: #ddd;}
+
+#students th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    {% if 'onlineapp.add_college' in user_permissions %}
+    <input type="button" onclick="location.href='http://127.0.0.1:8000/onlineapp/college/new/add'" value="Add college ">
+    {% endif %}
+    <input type="button" onclick="location.href='http://127.0.0.1:8000/onlineapp/logout'" value="logout">
+    <br>
+    <table border="1" align="center" id="students">
+        <tr>
+            <th>name</th>
+            <th>acronym</th>
+            <th>location</th>
+            {% if 'onlineapp.change_college' in user_permissions  and 'onlineapp.delete_college' in user_permissions %}
+            <th>options</th>
+            {% endif %}
+        </tr>
+
+
+        {% for i in col_det %}
+            <tr>
+                <td><a href="{{i.id}}">{{i.name}}</a></td>
+                <td>{{i.acronym}}</td>
+                <td>{{i.location}}</td>
+                {% if 'onlineapp.change_college' in user_permissions  and 'onlineapp.delete_college' in user_permissions %}
+                <td><a href="http://127.0.0.1:8000/onlineapp/college/{{i.id}}/edit">edit</a>/<a href="http://127.0.0.1:8000/onlineapp/college/{{i.id}}/delete">delete</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

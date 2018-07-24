@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college file</title>
+</head>
+<body>
+<h1>hello world</h1>
+<h4>{{shy}}</h4>
+    <table border="1" align="center">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>{{s}}</th>
+        </tr>
+
+
+        {% for i in student_details %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <button onclick="http://127.0.0.1:8000/stud/3">click me hard</button>
+</body>
+</html>

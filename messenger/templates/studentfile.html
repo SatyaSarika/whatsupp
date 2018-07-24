@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student details</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+</head>
+<body>
+    <button onclick="location.href='http://127.0.0.1:8000/studmarks'" type="button">
+     get marks</button>
+    <table border="1" align="center">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>acronym</th>
+        </tr>
+        {% for i in student_details %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.college__acronym}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college file acronym</title>
+</head>
+<body>
+    <table border="1" align="center">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>acronym</th>
+        </tr>
+
+
+        {% for i in student_det %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.college__acronym}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!--college name n acronym-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<table border="1" align="center">
+{% for i in shyam %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.acronym}}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
